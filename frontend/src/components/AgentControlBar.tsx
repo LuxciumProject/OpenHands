@@ -76,7 +76,10 @@ function AgentControlBar() {
   const socket = useSocket();
 
   const handleAction = () => {
-    const action = curAgentState === AgentState.PAUSED ? AgentState.RUNNING : AgentState.PAUSED
+    const action =
+      curAgentState === AgentState.PAUSED
+        ? AgentState.RUNNING
+        : AgentState.PAUSED;
     if (!IgnoreTaskStateMap[action].includes(curAgentState)) {
       send(generateAgentStateChangeEvent(action));
     }
@@ -85,14 +88,14 @@ function AgentControlBar() {
   const renderButton = () => {
     if (!socket.isConnected) {
       return (
-      <ActionButton
-        content={"Reconnect"}
-        handleClick={() => location.reload()}
-        large
-      >
-        <Refresh width={20} height={20} />
-      </ActionButton>
-      )
+        <ActionButton
+          content="Reconnect"
+          handleClick={() => window.location.reload()}
+          large
+        >
+          <Refresh width={20} height={20} />
+        </ActionButton>
+      );
     }
 
     return (
@@ -111,8 +114,8 @@ function AgentControlBar() {
       >
         {curAgentState === AgentState.PAUSED ? <PlayIcon /> : <PauseIcon />}
       </ActionButton>
-    )
-  }
+    );
+  };
 
   return (
     <div className="flex justify-between items-center gap-20">
