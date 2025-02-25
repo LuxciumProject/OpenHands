@@ -44,7 +44,7 @@ docker build -t custom-image .
 
 在 OpenHands 目录中的 `config.toml` 文件中，将 `sandbox_base_container_image` 设置为你要使用的镜像。这可以是你已经拉取的镜像或你构建的镜像：
 
-```bash
+```toml
 [core]
 ...
 sandbox_base_container_image="custom-image"
@@ -52,7 +52,13 @@ sandbox_base_container_image="custom-image"
 
 ### 运行
 
-通过在顶层目录中运行 ```make run``` 来运行 OpenHands。
+通过在终端中运行：
+
+```bash
+make run
+```
+
+来运行 OpenHands。
 
 ## 技术解释
 
